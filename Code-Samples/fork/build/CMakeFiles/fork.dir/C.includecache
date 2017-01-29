@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/me/CSE3320/Code-Samples/fork/fork.c
+sys/types.h
+-
+sys/wait.h
+-
+stdio.h
+-
+stdlib.h
+-
+unistd.h
+-
+

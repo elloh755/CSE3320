@@ -1,0 +1,1 @@
+/usr/bin/cc     CMakeFiles/Assignment-1.dir/mfs.c.o  -o Assignment-1 -rdynamic 
