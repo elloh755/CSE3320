@@ -37,6 +37,8 @@
 
 #define MAX_NUM_ARGUMENTS 5     // Mav shell only supports five arguments
 
+void start_process(char**, int);
+
 int main()
 {
 
@@ -81,18 +83,31 @@ int main()
       }
         token_count++;
     }
-
+    start_process(token, token_count);
     // Now print the tokenized input as a debug check
     // \TODO Remove this code and replace with your shell functionality
 
-    int token_index  = 0;
+    /*int token_index  = 0;
     for( token_index = 0; token_index < token_count; token_index ++ ) 
     {
       printf("token[%d] = %s\n", token_index, token[token_index] );  
-    }
+    }*/
 
     free( working_root );
 
   }
   return 0;
+}
+
+void start_process(char** token, int token_count)
+{
+    int token_index = 0;
+    for(token_index = 0; token_index < (token_count - 1); ++token_index)
+    { 
+        if(token[0] == NULL)
+        {
+            return;
+        }
+        printf("msh> %s\n", token[token_index]);
+    }
 }
