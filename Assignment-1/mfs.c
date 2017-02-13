@@ -101,13 +101,29 @@ int main()
 
 void start_process(char** token, int token_count)
 {
+    pid_t pid;
     int token_index = 0;
+    char current_directory = 255; 
+
     for(token_index = 0; token_index < (token_count - 1); ++token_index)
     { 
         if(token[0] == NULL)
         {
             return;
         }
-        printf("msh> %s\n", token[token_index]);
+        //printf("msh> %s\n", token[token_index]);
+    }
+    pid = fork();
+    if( pid == -1 )
+    {
+        // When fork() returns -1, an error happened.
+        perror("fork failed: ");
+        exit( EXIT_FAILURE );
+    }
+    else if ( pid == 0 )
+    {
+        // When fork() returns 0, we are in the child process.
+        getcwd();
+        exit( EXIT_SUCCESS );
     }
 }
